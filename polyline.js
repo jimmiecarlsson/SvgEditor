@@ -1,4 +1,4 @@
-import { getSVGCoords } from "./editor.js";
+import { getSVGCoords, getCurrentStyle } from "./editor.js";
 
 export function activatePolyline(svg, updateCodeBox) {
   let polyline = null;
@@ -6,13 +6,14 @@ export function activatePolyline(svg, updateCodeBox) {
 
   function mousedown(e) {
     const {x, y} = getSVGCoords(svg, e);
+    const style = getCurrentStyle();
 
     if (!polyline) {
       // Starta en ny polyline
       polyline = document.createElementNS("http://www.w3.org/2000/svg", "polyline");
       polyline.setAttribute("fill", "none");
-      polyline.setAttribute("stroke", "black");
-      polyline.setAttribute("stroke-width", "2");
+      polyline.setAttribute("stroke", style.stroke);
+      polyline.setAttribute("stroke-width", style.strokeWidth);
       svg.appendChild(polyline);
     }
 

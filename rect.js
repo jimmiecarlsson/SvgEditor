@@ -1,4 +1,4 @@
-import { getSVGCoords } from "./editor.js";
+import { getSVGCoords, getCurrentStyle } from "./editor.js";
 
 export function activateRect(svg, updateCodeBox) {
   let rect = null;
@@ -6,14 +6,16 @@ export function activateRect(svg, updateCodeBox) {
 
   function mousedown(e) {
     start = getSVGCoords(svg, e);
+    const style = getCurrentStyle();
+
     rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
     rect.setAttribute("x", start.x);
     rect.setAttribute("y", start.y);
     rect.setAttribute("width", 0);
     rect.setAttribute("height", 0);
     rect.setAttribute("fill", "none");
-    rect.setAttribute("stroke", "black");
-    rect.setAttribute("stroke-width", "2");
+    rect.setAttribute("stroke", style.stroke);
+    rect.setAttribute("stroke-width", style.strokeWidth);
     svg.appendChild(rect);
   }
 
