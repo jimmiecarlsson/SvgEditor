@@ -30,8 +30,8 @@ Här kan du rita former direkt i webbläsaren, justera färg och tjocklek, samt 
 ## 🚀 Kom igång
 1. Klona repot:
    ```bash
-   git clone <repo-url>
-   cd <repo-namn>
+   git clone https://github.com/jimmiecarlsson/SvgEditor.git
+   cd SvgEditor
    ```
 2. Öppna `index.html` i din webbläsare (ingen build eller server krävs).
 3. Välj ett verktyg i toolbaren och börja rita i canvas.
@@ -51,6 +51,7 @@ polyline.js        # Polyline-verktyg
 ```
 
 ## 🔧 Att bygga vidare på
+- Utseendet och lite UX
 - Lägg till fler former (ellipse, polygon, text, image)
 - Stöd för fill-färg i stället för bara stroke
 - Flytta / redigera redan ritade objekt
